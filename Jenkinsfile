@@ -7,7 +7,7 @@ pipeline {
         DOCKER_TAG = 'latest'
     }
 
-    states {
+    stages {
         stage('Checkout') {
             steps {
                 cleanWs ()
