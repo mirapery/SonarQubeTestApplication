@@ -25,7 +25,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'sonar-token', variable: 'sonar-token')]) {
                     withSonarQubeEnv("${SONARQUBE_SERVER}") {
-                        bat "mvn clean verify sonar:sonar -Dsonar.token=%sonar-token%"
+                        bat "mvn clean verify sonar:sonar -Dsonar.token=%sonar-token% -X"
                     }
                 }
             }
