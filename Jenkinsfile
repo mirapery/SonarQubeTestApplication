@@ -23,9 +23,9 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withCredentials([string(credentialsId: 'sonar-token', variable: 'sonar-token')]) {
+                withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
                     withSonarQubeEnv("${SONARQUBE_SERVER}") {
-                        bat "mvn clean verify sonar:sonar -Dsonar.token=%sonar-token% -X"
+                        bat "mvn clean verify sonar:sonar -Dsonar.token=%SONAR_TOKEN% -X"
                     }
                 }
             }
