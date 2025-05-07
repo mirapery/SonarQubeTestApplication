@@ -25,7 +25,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
                     withSonarQubeEnv("${SONARQUBE_SERVER}") {
-                        bat "mvn clean verify sonar:sonar -Dsonar.token=%SONAR_TOKEN% -X"
+                        bat "mvn clean verify sonar:sonar -Dsonar.token=%SONAR_TOKEN%"
                     }
                 }
             }
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'docker-hub-creds',
-                    usernamePassword: 'DOCKER_USERNAME',
+                    usernameVariable: 'DOCKER_USERNAME',
                     passwordVariable: 'DOCKER_PASSWORD'
                 )]) {
                     bat """
