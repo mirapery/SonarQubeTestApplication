@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SONARQUBE_SERVER = 'SonarQubeServer'
-        DOCKER_IMAGE = 'mirapery/SonarQubeTestApplication'
+        DOCKER_IMAGE = 'mirapery/sonarqubetestapplication'
         DOCKER_TAG = 'latest'
     }
 
